@@ -1,0 +1,37 @@
+{
+  "extends": "@nobitex/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "declaration": true,
+    "jsx": "react",
+    "target": "es6",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "moduleResolution": "Bundler",
+    "module": "esnext",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "types": [
+      "vitest/jsdom"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "postcss.config.js",
+    "eslint.config.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "*.js",
+    "dist/**",
+    "storybook-static/**"
+  ],
+}
