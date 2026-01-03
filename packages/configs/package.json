@@ -1,0 +1,9 @@
+{
+  "name": "@networking/configs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Networking Global Configurations",
+  "exports": {
+    "./i18n/*": "./i18n/*"
+  }
+}

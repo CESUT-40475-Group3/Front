@@ -1,5 +1,14 @@
 packages:
   - .
+  - 'packages/*'
+  - 'apps/*'
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+  - '@tailwindcss/oxide'
+  - '@sentry/cli'
+  - '@swc/core'
+  - better-sqlite3
+  - core-js
+  - core-js-pure
+  - esbuild

@@ -1,5 +1,5 @@
 {
-  "extends": "@nobitex/typescript-config/base.json",
+  "extends": "@networking/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "baseUrl": ".",

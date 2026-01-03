@@ -1,7 +1,7 @@
 import { createStore } from 'zustand'
 import Cookies from 'js-cookie'
-import { isBrowser } from '@nobitex/utils/helpers/general.js'
-import { TOKEN_KEY } from '@nobitex/utils/constants.js'
+import { isBrowser } from '@networking/utils/helpers/general.js'
+import { TOKEN_KEY } from '@networking/utils/constants.js'
 
 import { IAuthStore } from './types'
 

@@ -1,18 +1,31 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
+import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import { globalIgnores } from 'eslint/config';
+import path from "path";
+import { fileURLToPath } from "url";
 
-export default eslintConfig;
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+    recommendedConfig: js.configs.recommended,
+})
+
+/** @type {import("eslint").Linter.Config} */
+export default [
+    ...compat.extends('eslint:recommended'),
+    ...compat.extends('plugin:import/recommended'),
+    ...compat.extends('@networking/eslint-config/library.js'),
+    ...compat.extends('prettier'),
+    {
+        rules: {
+            'no-unused-vars': 'off',
+        },
+    }, globalIgnores([
+        '.*.js',
+        'node_modules/',
+        'dist/',
+        '/public/**',
+    ],)]

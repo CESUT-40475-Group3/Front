@@ -74,10 +74,4 @@ module.exports = {
       jsxSingleQuote: true,
     },
   ],
-  // 'tailwindcss/no-custom-classname': [
-  //   1,
-  //   {
-  //     whitelist: ['^legacy-icon-.*', '^icon-.*', '^order-.*', '^tradingview-.*', 'no-scrollbar'],
-  //   },
-  // ],
 }

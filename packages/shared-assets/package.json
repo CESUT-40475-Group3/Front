@@ -1,0 +1,12 @@
+{
+  "name": "@networking/shared-assets",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Networking Shared Assets",
+  "exports": {
+    "./img/*": "./img/*",
+    "./translations": "./translations",
+    "./fonts": "./fonts/*",
+    "./holidays/*": "./holidays/*"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@networking/auth",
+  "version": "1.0.1",
+  "type": "module",
+  "private": true,
+  "description": "An authentication library for Networking Front-Next",
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "types": "./dist/*",
+  "scripts": {
+    "build": "vite build --logLevel warn",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "lint": "eslint . --fix",
+    "lint-staged": "lint-staged -v -d --no-stash"
+  },
+  "dependencies": {
+    "@networking/configs": "workspace:*",
+    "@networking/utils": "workspace:*",
+    "js-cookie": "^3.0.5",
+    "mobx": "^6.13.5",
+    "vite": "^5.4.2",
+    "vite-plugin-node-polyfills": "^0.22.0"
+  },
+  "devDependencies": {
+    "@types/config": "^3.3.4",
+    "@types/js-cookie": "3.0.6",
+    "@types/node": "^22.4.2",
+    "glob": "^11.0.0",
+    "jsdom": "26.1.0",
+    "vite-plugin-dts": "^4.0.3",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.0.5"
+  },
+  "keywords": [
+    "networking",
+    "auth",
+    "networking-auth",
+    "authentication",
+    "token-management"
+  ]
+}

@@ -56,7 +56,7 @@
       "dependsOn": ["^build", "test"],
       "cache": true,
       "inputs": ["$TURBO_DEFAULT$", "env/.env.*", "!README.md"],
-      "env": ["BUILD_ENV", "host*", "origin", "isProduction", "target", "type", "api*", "cdn", "NODE_ENV", "gtmId", "CONTENT_API_SERVER_TOKEN", "SENTRY_LANDING_AUTH_TOKEN","NEXT_JS_SOURCEMAPS","googleAuthClientId","arCaptcha"],
+      "env": ["BUILD_ENV", "host*", "origin", "isProduction", "target", "type", "api*", "NODE_ENV","NEXT_JS_SOURCEMAPS","arCaptcha"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**", "out/**"],
       "outputLogs": "full"
     },
@@ -64,7 +64,7 @@
       "dependsOn": ["^build", "test"],
       "cache": true,
       "inputs": ["$TURBO_DEFAULT$", "env/.env.*", "!README.md"],
-      "env": ["BUILD_ENV", "host*", "origin", "isProduction", "target", "type", "api*", "cdn", "NODE_ENV", "gtmId", "CONTENT_API_SERVER_TOKEN", "SENTRY_LANDING_AUTH_TOKEN","NEXT_JS_SOURCEMAPS","googleAuthClientId","arCaptcha"],
+      "env": ["BUILD_ENV", "host*", "origin", "isProduction", "target", "type", "api*", "NODE_ENV","NEXT_JS_SOURCEMAPS","arCaptcha"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**", "out/**"],
       "outputLogs": "full"
     },
@@ -73,37 +73,6 @@
       "cache": false,
       "persistent": true,
       "interactive": false,
-      "outputLogs": "full"
-    },
-    "test": {
-      "dependsOn": ["^build"],
-      "cache": true,
-      "inputs": ["vitest.config.{js,ts}", "tsconfig.json", "src/**"],
-      "outputLogs": "new-only"
-    },
-    "test:watch": {
-      "dependsOn": [],
-      "cache": false,
-      "persistent": true,
-      "interactive": true,
-      "outputLogs": "full"
-    },
-    "dev:storybook": {
-      "cache": false,
-      "persistent": true,
-      "interactive": false,
-      "outputLogs": "errors-only"
-    },
-    "build:storybook": {
-      "dependsOn": ["^build:storybook"],
-      "cache": true,
-      "outputs": ["storybook-static/**"],
-      "outputLogs": "full"
-    },
-    "move:storybook": {
-      "dependsOn": ["^move:storybook"],
-      "cache": false,
-      "persistent": false,
       "outputLogs": "full"
     }
   }
