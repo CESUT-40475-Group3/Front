@@ -1,20 +1,15 @@
-// src/app/layout.tsx
-import type { Metadata } from 'next';
 import './globals.css';
+import {Providers} from './providers';
+import AuthGate from './components/AuthGate';
 
-export const metadata: Metadata = {
-  title: 'Professional Networking Platform',
-  description: 'Connect with professionals and grow your network',
-};
-
-export default function RootLayout({
-                                     children,
-                                   }: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-    <body className="antialiased bg-gray-50">{children}</body>
+    <body>
+    <Providers>
+      <AuthGate>{children}</AuthGate>
+    </Providers>
+    </body>
     </html>
   );
 }
