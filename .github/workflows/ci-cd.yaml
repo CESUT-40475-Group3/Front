@@ -41,7 +41,7 @@ jobs:
         continue-on-error: true
 
       - name: Build utilities
-        run: pnpm run build: utils
+        run: pnpm run build:utils
 
       - name: Run tests in packages
         run: |
