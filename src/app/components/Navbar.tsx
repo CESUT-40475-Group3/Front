@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
 import Link from 'next/link';
 import { useAuthStore } from '@/store/authStore';
 import { Home, Users, MessageCircle, Search, Shield, LogOut } from 'lucide-react';
 
-export default function Navbar() {
+export default function  Navbar() {
   const user = useAuthStore((s) => s.user);
   const logout = useAuthStore((s) => s.logout);
 

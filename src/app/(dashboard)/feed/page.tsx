@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/authStore';
 import { mockApiClient } from '@/lib/mockApi';
-import type { Comment, Post } from '@/types/api';
+import { Comment, Post } from '@/types/api';
 
 export default function FeedPage() {
   const user = useAuthStore((s) => s.user);

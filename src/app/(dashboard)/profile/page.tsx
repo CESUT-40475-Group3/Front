@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/authStore';
 import { mockApiClient } from '@/lib/mockApi';
-import type { Profile, Experience, Education } from '@/types/api';
+import { Profile, Experience, Education } from '@/types/api';
 
 export default function ProfilePage() {
   const user = useAuthStore((s) => s.user);

@@ -1,17 +1,17 @@
-'use client';
+'use client'
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
 import { mockApiClient } from '@/lib/mockApi';
-import type { SearchResult } from '@/types/api';
+import { SearchResults } from '@/types/api';
 import { UserPlus, MessageCircle, Check, Clock } from 'lucide-react';
 
 export default function SearchPage() {
   const router = useRouter();
   const user = useAuthStore((s) => s.user);
   const [searchQuery, setSearchQuery] = useState('');
-  const [results, setResults] = useState<SearchResult[]>([]);
+  const [results, setResults] = useState<SearchResults>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -91,7 +91,7 @@ export default function SearchPage() {
               </div>
 
               <div className="flex gap-2">
-                {r.connectionStatus === 'connected' ? (
+                {r.connected ? (
                   <>
                     <button onClick={() => router.push(`/messages?userId=${r.id}`)} className="btn-primary flex items-center gap-2">
                       <MessageCircle size={16} />
@@ -102,7 +102,7 @@ export default function SearchPage() {
                       Connected
                     </button>
                   </>
-                ) : r.connectionStatus === 'pending' ? (
+                ) : !r.connected ? (
                   <button className="btn-secondary flex items-center gap-2" disabled>
                     <Clock size={16} />
                     Pending

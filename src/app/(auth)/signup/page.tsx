@@ -1,7 +1,6 @@
-// src/app/(auth)/signup/page.tsx
-'use client';
+'use client'
 
-import { useState } from 'react';
+import {FormEvent, useState} from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuthStore } from '@/store/authStore';
@@ -15,9 +14,9 @@ export default function SignupPage() {
     password: '',
     confirmPassword: '',
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
 

@@ -82,17 +82,19 @@ export type ConnectionStatus = 'connected' | 'pending' | 'rejected' | 'cancelled
 
 export type Connection = {
   id: string;
-  userId: string;
-  name: string;
-  headline: string;
+  userId?: string;
+  name?: string;
+  headline?: string;
   avatar?: string;
   status: ConnectionStatus;
   createdAt: string;
+  updatedAt?: string;
   receiverId?: string;
   requesterId?: string;
   otherUserId?: string;
   otherName?: string;
   otherHeadline?: string;
+  otherAvatar?: string;
 };
 
 export type SearchResult = {
@@ -101,8 +103,12 @@ export type SearchResult = {
   headline: string;
   location: string;
   avatar?: string;
-  connected: boolean; // dev-friendly "connected or not"
+  connected: boolean;
+  connectionStatus: ConnectionStatus | null;
+  connectionId?: string | null;
 };
+
+export type SearchResults = SearchResult[]
 
 export type AdminUserStatus = 'active' | 'inactive';
 

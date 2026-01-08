@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
 import { mockApiClient } from '@/lib/mockApi';
-import type { Connection } from '@/types/api';
+import { Connection } from '@/types/api';
 import { UserPlus, Check, X, MessageCircle, UserMinus } from 'lucide-react';
 
 export default function NetworkPage() {
