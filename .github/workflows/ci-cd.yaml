@@ -75,8 +75,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:buildcache
-          cache-to:  type=registry,ref=${{ env.REGISTRY }}/${{ env. IMAGE_NAME_LOWER }}:buildcache,mode=max
 
   cd:
     name: Continuous Deployment
