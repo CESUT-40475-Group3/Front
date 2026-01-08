@@ -78,7 +78,7 @@ export type Comment = {
   createdAt: string;
 };
 
-export type ConnectionStatus = 'connected' | 'pending';
+export type ConnectionStatus = 'connected' | 'pending' | 'rejected' | 'cancelled';
 
 export type Connection = {
   id: string;
@@ -88,6 +88,11 @@ export type Connection = {
   avatar?: string;
   status: ConnectionStatus;
   createdAt: string;
+  receiverId?: string;
+  requesterId?: string;
+  otherUserId?: string;
+  otherName?: string;
+  otherHeadline?: string;
 };
 
 export type SearchResult = {

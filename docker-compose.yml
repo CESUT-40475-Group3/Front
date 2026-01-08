@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "4000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    # Uncomment and add environment variables as needed
+    # env_file:
+    #   - .env.production
