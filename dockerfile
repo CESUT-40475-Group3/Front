@@ -11,13 +11,6 @@ WORKDIR /app
 
 # Copy dependency files
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY packages/auth/package.json ./packages/auth/
-COPY packages/configs/package.json ./packages/configs/
-COPY packages/eslint-config/package.json ./packages/eslint-config/
-COPY packages/fetch/package.json ./packages/fetch/
-COPY packages/shared-assets/package.json ./packages/shared-assets/
-COPY packages/typescript-config/package.json ./packages/typescript-config/
-COPY packages/utils/package.json ./packages/utils/
 
 # Install dependencies
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
@@ -28,13 +21,9 @@ WORKDIR /app
 
 # Copy dependencies from deps stage
 COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/packages ./packages
 
 # Copy all source files
 COPY . .
-
-# Build utils package first (as required by dev script)
-RUN pnpm -F @networking/utils run build
 
 # Build the Next.js application
 ENV NEXT_TELEMETRY_DISABLED=1
