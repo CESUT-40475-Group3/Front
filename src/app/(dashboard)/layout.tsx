@@ -1,5 +1,4 @@
-// src/app/(dashboard)/layout.tsx
-'use client';
+'use client'
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -11,27 +10,24 @@ export default function DashboardLayout({
                                         }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated, initializeAuth } = useAuthStore();
   const router = useRouter();
+  const user = useAuthStore((s) => s.user);
+  const token = useAuthStore((s) => s.token);
 
   useEffect(() => {
-    initializeAuth();
-  }, [initializeAuth]);
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push('/login');
+    if (!user || !token) {
+      router.replace('/login');
     }
-  }, [isAuthenticated, router]);
+  }, [user, token, router]);
 
-  if (!isAuthenticated) {
+  if (!user || !token) {
     return null;
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
       <Navbar />
-      <main>{children}</main>
-    </div>
+      <main className="min-h-screen bg-gray-50">{children}</main>
+    </>
   );
 }

@@ -3,19 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:utils": "pnpm -F @networking/utils run build",
-    "dev": "pnpm build:utils && next dev -p 4000",
+    "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "@networking/auth": "workspace:*",
-    "@networking/configs": "workspace:*",
-    "@networking/fetch": "workspace:*",
-    "@networking/shared-assets": "workspace:*",
-    "@networking/typescript-config": "workspace:*",
-    "@networking/utils": "workspace:*",
     "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
     "next": "15.3.8",
@@ -27,7 +20,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.27.0",
-    "@networking/eslint-config": "workspace:*",
     "@next/eslint-plugin-next": "^15.3.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -50,5 +42,6 @@
     "typescript": "^5",
     "typescript-eslint": "^8.32.0",
     "winston": "^3.13.0"
-  }
+  },
+  "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a"
 }

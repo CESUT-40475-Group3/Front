@@ -1,5 +1,4 @@
-// src/app/(dashboard)/admin/page.tsx
-'use client';
+'use client'
 
 import { useState, useEffect } from 'react';
 import { useAuthStore } from '@/store/authStore';

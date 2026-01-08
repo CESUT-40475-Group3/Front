@@ -17,6 +17,7 @@ import {
 // ---------------------------
 // Mock "database" (in memory)
 // ---------------------------
+
 let mockUsers: User[] = [
   { id: '1', email: 'admin@example.com', name: 'Admin User', role: 'admin', avatar: undefined },
   { id: '2', email: 'john@example.com', name: 'John Doe', role: 'user', avatar: undefined },
@@ -222,7 +223,7 @@ function findConnectionBetween(userId1: string, userId2: string): Connection | u
 function enrichConnection(conn: Connection, currentUserId: string): Connection {
   const otherUserId = conn.requesterId === currentUserId ? conn.receiverId : conn.requesterId;
   const otherUser = mockUsers.find((u) => u.id === otherUserId);
-  const otherProfile = mockProfiles[otherUserId];
+  const otherProfile = mockProfiles[otherUserId!];
 
   return {
     ...conn,
@@ -410,7 +411,6 @@ export const mockApiClient = {
         existing.status = 'pending';
         existing.requesterId = currentUserId;
         existing.receiverId = targetUserId;
-        existing.updatedAt = new Date().toISOString();
         return;
       }
 
@@ -536,6 +536,7 @@ export const mockApiClient = {
           headline: profile?.headline ?? 'Professional',
           location: profile?.location ?? 'Location',
           avatar: u.avatar,
+          connected: conn?.status === 'connected',
           connectionStatus: conn?.status ?? null,
         };
       });

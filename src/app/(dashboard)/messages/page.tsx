@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
 import { useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
 import { mockApiClient } from '@/lib/mockApi';
-import type { Conversation, Message } from '@/types/api';
+import { Conversation, Message } from '@/types/api';
 
 function MessagesInner() {
   const searchParams = useSearchParams();
